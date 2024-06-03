@@ -2,7 +2,10 @@
   "name": "@angular-keycloak-auth/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "serve-demo": "nx serve --project=angular-keycloak-auth-demo",
+    "build-demo": "nx build --project=angular-keycloak-auth-demo"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~17.3.0",
@@ -14,6 +17,9 @@
     "@angular/platform-browser-dynamic": "~17.3.0",
     "@angular/router": "~17.3.0",
     "@nx/angular": "18.2.0",
+    "angular-user-idle": "^4.0.0",
+    "keycloak-angular": "^15.2.1",
+    "keycloak-js": "^22.0.5",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
