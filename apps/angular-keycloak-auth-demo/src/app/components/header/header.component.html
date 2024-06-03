@@ -1,0 +1,10 @@
+<header class="header">
+    <a href="#" class="logo">{{isLoggedIn ? username : "Guest"}}</a>
+    <nav class="nav-wrapper">
+        <ul *ngFor="let route of appRoutes">
+            <li><a [routerLink]="[route.path]">{{route.name}}</a></li>
+        </ul>
+        <a *ngIf="!isLoggedIn" class="auth-action" role="button" (click)="redirectToLoginPage()">Login</a>
+        <a *ngIf="isLoggedIn" class="auth-action" role="button" (click)="logout()">Logout</a>
+    </nav>
+</header>

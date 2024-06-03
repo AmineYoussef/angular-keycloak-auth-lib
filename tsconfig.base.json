@@ -15,9 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@angular-keycloak-auth-lib": [
-        "libs/angular-keycloak-lib/src/index.ts"
-      ]
+      "@angular-keycloak-auth-lib": ["libs/angular-keycloak-lib/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

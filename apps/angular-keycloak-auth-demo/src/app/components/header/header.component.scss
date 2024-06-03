@@ -1,0 +1,45 @@
+.header {
+    background: linear-gradient(to right, #800000, #C33); /* Gradient background */
+    padding: 20px;
+    height: 24px;
+    display: flex; /* Arrange elements horizontally */
+    justify-content: space-between; /* Space items evenly */
+    align-items: center; /* Align vertically */
+  }
+  
+  .logo {
+    color: white; /* Text color for logo */
+    font-size: 20px; /* Adjust font size as needed */
+    text-decoration: none; /* Remove underline from link */
+  }
+  
+  nav ul {
+    list-style: none; /* Remove bullet points */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+  }
+  
+  nav li {
+    display: inline-block; /* Display list items inline */
+    margin-right: 20px; /* Add space between links */
+  }
+  
+  nav a {
+    color: white; /* Text color for links */
+    text-decoration: none; /* Remove underline from link */
+    font-weight: bold; /* Make links bolder */
+    transition: 100ms
+  }
+  
+  nav a:hover {
+    color: #bf8a84; /* Change link color on hover */
+  }
+
+  .nav-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .auth-action {
+    cursor: pointer;
+  }

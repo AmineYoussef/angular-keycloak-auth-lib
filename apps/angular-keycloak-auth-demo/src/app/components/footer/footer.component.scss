@@ -1,0 +1,30 @@
+/* Add styles for the footer */
+
+.footer {
+    background: linear-gradient(to right, #800000, #C33); /* Gradient background */
+    color: white; /* Text color */
+    padding: 10px 20px;
+    text-align: center; /* Center content horizontally */
+    height: 96px;
+  }
+  
+  .footer p {
+    margin-bottom: 10px; /* Add space before navigation links */
+  }
+  
+  .footer nav {
+    display: inline-block; /* Display navigation inline */
+  }
+  
+  .footer li {
+    display: inline; /* Display list items inline */
+    margin-right: 15px; /* Add space between links */
+  }
+  
+  .footer a {
+    color: inherit; /* Inherit text color from footer */
+  }
+  
+  .footer a:hover {
+    color: #d95343; /* Change link color on hover */
+  }

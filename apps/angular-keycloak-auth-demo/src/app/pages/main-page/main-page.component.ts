@@ -10,12 +10,5 @@ import { Component } from '@angular/core';
   templateUrl: './main-page.component.html'
 })
 export class MainPageComponent {
-  get isLoggedIn(): boolean {
-    return this.authenticationService.isLoggedIn();
-  }
-  constructor(private readonly authenticationService: AuthenticationService) { 
-  }
-  redirectToLoginPage(): void {
-    this.authenticationService.redirectToLoginPage();
-  }
+  
 }
