@@ -1,10 +1,9 @@
 import { APP_INITIALIZER, ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
-import { HttpClientModule } from '@angular/common/http';
+import { KeycloakAngularModule, KeycloakBearerInterceptor, KeycloakService } from 'keycloak-angular';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AngularKeycloakOptions } from './angular-keycloak-options';
 import { provideUserIdleConfig } from 'angular-user-idle';
-
 export async function initializeKeycloak(keycloak: KeycloakService, options: AngularKeycloakOptions) {
   return keycloak.init({
     config: {
@@ -17,8 +16,9 @@ export async function initializeKeycloak(keycloak: KeycloakService, options: Ang
       onLoad: 'check-sso',
       silentCheckSsoRedirectUri: window.location.origin + '/assets/silent-check-sso.html',
       checkLoginIframe: false,
-      redirectUri: options.keycloak.redirectUri,
+      redirectUri: options.keycloak.redirectUri
     },
+    enableBearerInterceptor: true
   });
 }
 
@@ -30,7 +30,14 @@ export async function initializeKeycloak(keycloak: KeycloakService, options: Ang
     HttpClientModule,
   ],
   exports: [],
-  providers: [KeycloakService]
+  providers: [
+    KeycloakService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: KeycloakBearerInterceptor,
+      multi: true
+    }
+  ]
 })
 
 export class AngularKeycloakAuthModule {

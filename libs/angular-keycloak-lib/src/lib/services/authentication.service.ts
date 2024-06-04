@@ -19,6 +19,10 @@ export class AuthenticationService {
   get userName(): string {
     return this.keycloakService.getUsername();
   }
+
+  get bearerToken(): Promise<string> {
+    return this.keycloakService.getToken()
+  }
   isLoggedIn(): boolean {
     return this.keycloakService.isLoggedIn();
   }
