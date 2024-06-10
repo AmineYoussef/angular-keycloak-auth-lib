@@ -18,7 +18,9 @@ export async function initializeKeycloak(keycloak: KeycloakService, options: Ang
       checkLoginIframe: false,
       redirectUri: options.keycloak.redirectUri
     },
-    enableBearerInterceptor: true
+    enableBearerInterceptor: true,
+    bearerExcludedUrls: [],
+    bearerPrefix:'Bearer '
   });
 }
 
@@ -31,12 +33,6 @@ export async function initializeKeycloak(keycloak: KeycloakService, options: Ang
   ],
   exports: [],
   providers: [
-    KeycloakService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: KeycloakBearerInterceptor,
-      multi: true
-    }
   ]
 })
 
@@ -61,6 +57,11 @@ export class AngularKeycloakAuthModule {
           ping: options.idleConfig.ping,
           timeout: options.idleConfig.timeout,
         }),
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: KeycloakBearerInterceptor,
+          multi: true
+        }
       ],
     });
   }

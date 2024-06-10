@@ -11,9 +11,6 @@ import { Component } from '@angular/core';
 export class MainPageComponent {
 
   constructor(private readonly http: HttpClient) { }
-  ngOnInit(): void {
-
-  }
 
   sendRequest(): void {
     let headers = new HttpHeaders().append("X-API-KEY", "de8124dc113a4b1c80d2274e209857e7")
